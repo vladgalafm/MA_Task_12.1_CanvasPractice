@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas practice</title>
+</head>
+<body>
+<canvas id="house" width="500" height="500" style="background: linear-gradient(180deg, #0088ff, #ffffff 70%)">
+
+</canvas>
+<script>
+  var canvas = document.getElementById("house");
+  var ctx = canvas.getContext("2d");
+
+  var grass = ctx.createLinearGradient(0, 350, 0, 500);
+  grass.addColorStop(0, "#00ff00");
+  grass.addColorStop(1, "#ccffcc");
+  ctx.fillStyle = grass;
+  ctx.fillRect(0, 350, 500, 150);
+
+  ctx.fillStyle = "#888888";
+  ctx.fillRect(200, 200, 150, 150);
+
+  ctx.fillStyle = "#555555";
+  ctx.beginPath();
+  ctx.moveTo(175, 200);
+  ctx.lineTo(275, 150);
+  ctx.lineTo(375, 200);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.strokeStyle = "#000000";
+  ctx.lineWidth = 3;
+  ctx.strokeRect(220, 210, 75, 100);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(225, 215, 65, 90);
+
+  ctx.fillStyle = "yellow";
+  ctx.beginPath();
+  ctx.arc(400, 50, 30, Math.PI/4, 7*Math.PI/4);
+  ctx.lineTo(400, 50);
+  ctx.closePath();
+  ctx.fill();
+
+  ctx.fillStyle = "red";
+  ctx.beginPath();
+  ctx.moveTo(75, 40);
+  ctx.bezierCurveTo(75,37,70,25,50,25);
+  ctx.bezierCurveTo(20,25,20,62.5,20,62.5);
+  ctx.bezierCurveTo(20,80,40,102,75,120);
+  ctx.bezierCurveTo(110,102,130,80,130,62.5);
+  ctx.bezierCurveTo(130,62.5,130,25,100,25);
+  ctx.bezierCurveTo(85,25,75,37,75,40);
+  ctx.fill();
+
+</script>
+</body>
+</html>
